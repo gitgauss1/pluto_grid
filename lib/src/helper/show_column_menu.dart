@@ -16,8 +16,7 @@ abstract class PlutoColumnMenuDelegate<T> {
   });
 }
 
-class PlutoColumnMenuDelegateDefault
-    implements PlutoColumnMenuDelegate<PlutoGridColumnMenuItem> {
+class PlutoColumnMenuDelegateDefault implements PlutoColumnMenuDelegate<PlutoGridColumnMenuItem> {
   const PlutoColumnMenuDelegateDefault();
 
   @override
@@ -63,7 +62,7 @@ class PlutoColumnMenuDelegateDefault
         break;
       case PlutoGridColumnMenuItem.setFilter:
         if (!mounted) return;
-        stateManager.showFilterPopup(context, calledColumn: column);
+        // stateManager.showFilterPopup(context, calledColumn: column);
         break;
       case PlutoGridColumnMenuItem.resetFilter:
         stateManager.setFilter(null);
@@ -81,8 +80,7 @@ Future<T?>? showColumnMenu<T>({
   required List<PopupMenuEntry<T>> items,
   Color backgroundColor = Colors.white,
 }) {
-  final RenderBox overlay =
-      Overlay.of(context).context.findRenderObject() as RenderBox;
+  final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
 
   return showMenu<T>(
     context: context,
