@@ -142,8 +142,7 @@ class PlutoColumnFilterState extends PlutoStateWithChange<PlutoColumnFilter> {
       return KeyEventResult.handled;
     }
 
-    final handleMoveDown =
-        (keyManager.isDown || keyManager.isEnter || keyManager.isEsc) && stateManager.refRows.isNotEmpty;
+    final handleMoveDown = (keyManager.isDown || keyManager.isEsc) && stateManager.refRows.isNotEmpty;
 
     final handleMoveHorizontal = keyManager.isTab || (_controller.text.isEmpty && keyManager.isHorizontal);
 
@@ -157,6 +156,10 @@ class PlutoColumnFilterState extends PlutoStateWithChange<PlutoColumnFilter> {
       return stateManager.keyManager!.eventResult.skip(
         KeyEventResult.ignored,
       );
+    }
+
+    if (keyManager.isEnter) {
+      _handleOnChanged(_controller.text);
     }
 
     if (handleMoveDown) {
