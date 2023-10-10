@@ -581,10 +581,19 @@ class PlutoGridState extends PlutoStateWithChange<PlutoGrid> {
   }
 
   KeyEventResult _handleGridFocusOnKey(FocusNode focusNode, RawKeyEvent event) {
+    if (event.logicalKey.keyId == LogicalKeyboardKey.f5) {
+      return KeyEventResult.ignored;
+    }
+
     if ((event.isMetaPressed || event.isControlPressed) &&
         (event.logicalKey.keyId == LogicalKeyboardKey.equal.keyId ||
+            event.logicalKey.keyId == LogicalKeyboardKey.add.keyId ||
             event.logicalKey.keyId == LogicalKeyboardKey.minus.keyId ||
-            event.logicalKey.keyId == LogicalKeyboardKey.add.keyId)) {
+            event.logicalKey.keyId == LogicalKeyboardKey.digit0.keyId ||
+            event.logicalKey.keyId == LogicalKeyboardKey.keyR.keyId ||
+            event.logicalKey.keyId == LogicalKeyboardKey.numpadAdd.keyId ||
+            event.logicalKey.keyId == LogicalKeyboardKey.numpadSubtract.keyId ||
+            event.logicalKey.keyId == LogicalKeyboardKey.numpad0.keyId)) {
       return KeyEventResult.ignored;
     }
 
