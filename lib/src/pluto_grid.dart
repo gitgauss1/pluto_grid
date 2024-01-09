@@ -593,7 +593,8 @@ class PlutoGridState extends PlutoStateWithChange<PlutoGrid> {
             event.logicalKey.keyId == LogicalKeyboardKey.keyR.keyId ||
             event.logicalKey.keyId == LogicalKeyboardKey.numpadAdd.keyId ||
             event.logicalKey.keyId == LogicalKeyboardKey.numpadSubtract.keyId ||
-            event.logicalKey.keyId == LogicalKeyboardKey.numpad0.keyId)) {
+            event.logicalKey.keyId == LogicalKeyboardKey.numpad0.keyId ||
+            event.logicalKey.keyId == LogicalKeyboardKey.keyF.keyId)) {
       return KeyEventResult.ignored;
     }
 
