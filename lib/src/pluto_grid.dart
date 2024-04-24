@@ -562,7 +562,9 @@ class PlutoGridState extends PlutoStateWithChange<PlutoGrid> {
         _stateManager.setCurrentCell(_stateManager.firstCell, 0);
       }
 
-      _stateManager.gridFocusNode.requestFocus();
+      if (_stateManager.configuration.enableRequestFocusOnInit) {
+        _stateManager.gridFocusNode.requestFocus();
+      }
     });
   }
 
