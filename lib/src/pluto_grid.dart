@@ -51,6 +51,7 @@ class PlutoGrid extends PlutoStatefulWidget {
     super.key,
     required this.columns,
     required this.rows,
+    this.focusNode,
     this.columnGroups,
     this.onLoaded,
     this.onChanged,
@@ -72,6 +73,9 @@ class PlutoGrid extends PlutoStatefulWidget {
     this.notifierFilterResolver,
     this.mode = PlutoGridMode.normal,
   });
+
+  /// Custom grid FocusNode, no need to dispose it manually
+  final FocusNode? focusNode;
 
   /// {@template pluto_grid_property_columns}
   /// The [PlutoColumn] column is delivered as a list and can be added or deleted after grid creation.
@@ -385,7 +389,7 @@ class PlutoGridState extends PlutoStateWithChange<PlutoGrid> {
 
   Widget? _footer;
 
-  final FocusNode _gridFocusNode = FocusNode();
+  late final FocusNode _gridFocusNode = widget.focusNode ?? FocusNode();
 
   final LinkedScrollControllerGroup _verticalScroll = LinkedScrollControllerGroup();
 
